@@ -1,5 +1,6 @@
 package ejerciciobucles;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -36,18 +37,21 @@ public class ParesNones {
 
         Scanner teclado = new Scanner(System.in);
         Random random = new Random();
-        int opcion,numeroJugador1 = 0,numeroJugador2 = 0,sumaNumeros;
+        int opcion = 0,numeroJugador1 = 0,numeroJugador2 = 0,sumaNumeros;
         String paresNones = null;
         boolean par; 
         
         do {
+            
             System.out.println("Opciones posibles ");
             System.out.println("1.Jugar contra una persona");
             System.out.println("2.Jugar contra la máquina");
             System.out.println("3.Finalizar programa");
-
+            try {
             opcion = teclado.nextInt();
-
+            }catch(InputMismatchException ime){
+                teclado.next();
+            }
        
         switch (opcion) {
             
